@@ -17,16 +17,15 @@
           class="pe-md-3 d-flex align-items-center"
           :class="isRTL ? 'me-md-auto' : 'ms-md-auto'"
         >
-          <material-input id="search" label="Search here" />
         </div>
-        <ul class="navbar-nav justify-content-end">
+        <ul class="navbar-nav justify-content-end icon-lg">
           <li class="nav-item d-flex align-items-center">
             <router-link
               :to="{ name: 'SignIn' }"
               class="px-0 nav-link font-weight-bold lh-1"
               :class="color ? color : 'text-body'"
             >
-              <i class="material-icons" :class="isRTL ? 'ms-sm-2' : 'me-sm-1'">
+              <i class="material-icons">
                 account_circle
               </i>
             </router-link>
@@ -185,7 +184,6 @@
   </nav>
 </template>
 <script>
-import MaterialInput from "@/components/MaterialInput.vue";
 import Breadcrumbs from "../Breadcrumbs.vue";
 import { mapMutations, mapState } from "vuex";
 
@@ -209,7 +207,6 @@ export default {
   },
   components: {
     Breadcrumbs,
-    MaterialInput,
   },
   computed: {
     ...mapState(["isRTL", "isAbsolute"]),

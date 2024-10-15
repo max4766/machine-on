@@ -109,12 +109,12 @@
                     {
                         icon: {
                             component: 'woman',
-                            background: 'bg-info',
+                            background: 'bg-success',
                         },
                         title: 'Storage',
                         description: 'Updated 2024-10-12',
                         value: 4 + 'TB',
-                        text: 'text-info'
+                        text: 'text-success'
                     },
                     {
                         icon: {

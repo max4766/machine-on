@@ -71,14 +71,6 @@
           </template>
         </sidenav-collapse>
       </li>
-      <li class="mt-3 nav-item">
-        <h6
-          class="text-xs ps-4 text-uppercase font-weight-bolder text-white"
-          :class="$store.state.isRTL ? 'me-4' : 'ms-2'"
-        >
-          ACCOUNT PAGES
-        </h6>
-      </li>
       <li class="nav-item">
         <sidenav-collapse
           url="#"
@@ -119,16 +111,6 @@
         </sidenav-collapse>
       </li>
     </ul>
-    <div class="sidenav-footer position-absolute w-100 bottom-0">
-      <div class="mx-3">
-        <a
-          class="btn mt-4 w-100"
-          :class="`bg-gradient-${this.$store.state.color}`"
-          href="https://www.creative-tim.com/product/vue-material-dashboard-2-pro"
-          >Upgrade to pro</a
-        >
-      </div>
-    </div>
   </div>
 </template>
 <script>

@@ -29,36 +29,50 @@
     </div>
 
     <div class="row">
-      <div class="col-4">
-        <span>hi</span>
-      </div>
-      <div class="col-4">
-        <span>hi</span>
-      </div>
-      <div class="col-4">
-        <span>hi</span>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-8">
-        <span>hi</span>
-      </div>
-      <div class="col-4">
-        <span>hi</span>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-4">
-        <span>hi</span>
-      </div>
-      <div class="col-4">
-        <span>hi</span>
-      </div>
-      <div class="col-4">
-        <span>hi</span>
-      </div>
+        <div class="col-6 mt-3">
+            <chart-holder-card
+                title="Operation System"
+                update="campaign sent 2 days ago"
+                color="info"
+            >
+                <reports-bar-chart
+                :chart="{
+                    labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
+                    datasets: {
+                        label: 'Sales',
+                        data: [50, 20, 10, 22, 50, 10, 40],
+                    },
+                }"
+                />
+            </chart-holder-card>
+            </div>
+            <div class="col-6 mt-3">
+            <chart-holder-card
+                title="Monthly VM Counts Change"
+                update="updated 4 min ago"
+                color="info"
+            >
+                <reports-line-chart
+                    :chart="{
+                        labels: [
+                        'Apr',
+                        'May',
+                        'Jun',
+                        'Jul',
+                        'Aug',
+                        'Sep',
+                        'Oct',
+                        'Nov',
+                        'Dec',
+                        ],
+                        datasets: {
+                            label: 'Mobile apps',
+                            data: [50, 40, 300, 320, 500, 350, 200, 230, 500],
+                        },
+                    }"
+                />
+        </chart-holder-card>
+        </div>
     </div>
 
   </div>
@@ -67,6 +81,9 @@
 <script>
     import DefaultInfoCard from "@/examples/Cards/DefaultInfoCard.vue";
     import MiniStatisticsCard from "./components/MiniStatisticsCard.vue";
+    import ChartHolderCard from "./components/ChartHolderCard.vue";
+    import ReportsBarChart from "@/examples/Charts/ReportsBarChart.vue";
+    import ReportsLineChart from "@/examples/Charts/ReportsLineChart.vue";
 
     export default {
         name: 'Projects',
@@ -237,6 +254,9 @@
         components: {
             DefaultInfoCard,
             MiniStatisticsCard,
+            ChartHolderCard,
+            ReportsBarChart,
+            ReportsLineChart,
         },
     }
 </script>

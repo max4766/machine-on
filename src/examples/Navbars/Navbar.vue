@@ -19,16 +19,49 @@
         >
         </div>
         <ul class="navbar-nav justify-content-end">
-          <li class="nav-item d-flex align-items-center">
-            <router-link
-              :to="{ name: 'SignIn' }"
-              class="px-0 nav-link font-weight-bold lh-1"
-              :class="color ? color : 'text-body'"
+          <li
+            class="nav-item dropdown d-flex align-items-center"
+          >
+            <a
+              href="#"
+              class="p-0 nav-link lh-1"
+              :class="[color ? color : 'text-body', showUserMenu ? 'show' : '']"
+              id="dropdownMenuButton"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              @click="showUserMenu = !showUserMenu"
             >
-              <i class="material-icons">
-                account_circle
-              </i>
-            </router-link>
+              <i class="material-icons cursor-pointer"> account_circle </i>
+            </a>
+            <ul
+              class="px-2 py-3 dropdown-menu dropdown-menu-end me-sm-n4"
+              :class="showUserMenu ? 'show' : ''"
+              aria-labelledby="dropdownMenuButton"
+            >
+              <li>
+                <a class="dropdown-item border-radius-md" href="javascript:;">
+                  <div class="py-1 d-flex">
+                    <div class="my-auto">
+                      <img
+                        src="../../assets/img/team-4.jpg"
+                        class="avatar avatar-sm me-3"
+                        alt="user image"
+                      />
+                    </div>
+                    <div class="d-flex flex-column justify-content-center">
+                      <span class="text-xs">User</span>
+                      <h6 class="mb-1 text-sm font-weight-normal">
+                        <span class="font-weight-bold">Youngseok Hwang</span>
+                      </h6>
+                      <p class="mb-0 text-xs text-secondary">
+                        <i class="fa fa-sms me-1"></i>
+                        hysgold@etechsystem.co.kr
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            </ul>
           </li>
           <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
             <a
@@ -44,35 +77,23 @@
               </div>
             </a>
           </li>
-          <li class="px-3 nav-item d-flex align-items-center">
-            <a
-              class="p-0 nav-link lh-1"
-              @click="toggleConfigurator"
-              :class="color ? color : 'text-body'"
-            >
-              <i class="material-icons fixed-plugin-button-nav cursor-pointer">
-                settings
-              </i>
-            </a>
-          </li>
           <li
-            class="nav-item dropdown d-flex align-items-center"
-            :class="isRTL ? 'ps-2' : 'pe-2'"
+            class="px-3 nav-item dropdown d-flex align-items-center"
           >
             <a
               href="#"
               class="p-0 nav-link lh-1"
-              :class="[color ? color : 'text-body', showMenu ? 'show' : '']"
+              :class="[color ? color : 'text-body', showAlarmMenu ? 'show' : '']"
               id="dropdownMenuButton"
               data-bs-toggle="dropdown"
               aria-expanded="false"
-              @click="showMenu = !showMenu"
+              @click="showAlarmMenu = !showAlarmMenu"
             >
               <i class="material-icons cursor-pointer"> notifications </i>
             </a>
             <ul
               class="px-2 py-3 dropdown-menu dropdown-menu-end me-sm-n4"
-              :class="showMenu ? 'show' : ''"
+              :class="showAlarmMenu ? 'show' : ''"
               aria-labelledby="dropdownMenuButton"
             >
               <li class="mb-2">
@@ -178,6 +199,17 @@
               </li>
             </ul>
           </li>
+          <li class="nav-item d-flex align-items-center">
+            <a
+              class="p-0 nav-link lh-1"
+              @click="toggleConfigurator"
+              :class="color ? color : 'text-body'"
+            >
+              <i class="material-icons fixed-plugin-button-nav cursor-pointer">
+                settings
+              </i>
+            </a>
+          </li>
         </ul>
       </div>
     </div>
@@ -191,7 +223,8 @@ export default {
   name: "navbar",
   data() {
     return {
-      showMenu: false,
+      showAlarmMenu: false,
+      showUserMenu: false,
     };
   },
   props: ["minNav", "color"],

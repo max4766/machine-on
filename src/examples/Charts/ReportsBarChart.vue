@@ -15,7 +15,7 @@ export default {
     },
     height: {
       type: [Number, String],
-      default: "170",
+      default: "525",
     },
     chart: {
       type: Object,
@@ -50,11 +50,12 @@ export default {
             borderSkipped: false,
             backgroundColor: "rgba(255, 255, 255, .8)",
             data: this.chart.datasets.data,
-            maxBarThickness: 6,
+            maxBarThickness: 8,
           },
         ],
       },
       options: {
+        indexAxis: 'y',
         responsive: true,
         maintainAspectRatio: false,
         plugins: {
@@ -63,7 +64,7 @@ export default {
           },
         },
         interaction: {
-          intersect: false,
+          intersect: true,
           mode: "index",
         },
         scales: {

@@ -18,7 +18,7 @@
           :class="isRTL ? 'me-md-auto' : 'ms-md-auto'"
         >
         </div>
-        <ul class="navbar-nav justify-content-end icon-lg">
+        <ul class="navbar-nav justify-content-end">
           <li class="nav-item d-flex align-items-center">
             <router-link
               :to="{ name: 'SignIn' }"

@@ -23,7 +23,7 @@
           class="navbar-brand-img h-100"
           alt="main_logo"
         />
-        <span class="ms-2 font-weight-bold text-white"
+        <span class="ms-2 font-weight-bold text-white text-lg"
           >Machine-On</span
         >
       </a>

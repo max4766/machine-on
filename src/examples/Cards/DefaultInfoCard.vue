@@ -16,7 +16,7 @@
       <h6 class="mb-0 text-center">{{ title }}</h6>
       <span class="text-xs">{{ description }}</span>
       <hr class="my-3 horizontal dark" />
-      <h5 class="mb-0">{{ value }}</h5>
+      <h5 :class="`mb-0 ${text}`">{{ value }}</h5>
     </div>
   </div>
 </template>
@@ -48,6 +48,10 @@ export default {
     },
     value: {
       type: [String, Number],
+      default: "",
+    },
+    text: {
+      type: String,
       default: "",
     },
   },

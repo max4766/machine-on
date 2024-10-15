@@ -2,44 +2,28 @@
     <div class="py-4 container-fluid">
         <div class="row mb-4">
             <div class="col-lg-12 position-relative z-index-2">
-            <div class="row">
-                <div class="col-2" v-for="(item, index) in items" :key="index">
-                    <DefaultInfoCard
-                        :icon="item.icon"
-                        :title="item.title"
-                        :description="item.description"
-                        :value="item.value"
-                        :text="item.text"
-                    />
+                
+                <div class="row">
+                    <div class="col-2" v-for="(item, index) in defaultInfoCardItems" :key="index">
+                        <DefaultInfoCard
+                            :icon="item.icon"
+                            :title="item.title"
+                            :description="item.description"
+                            :value="item.value"
+                            :text="item.text"
+                        />
+                    </div>
                 </div>
-            </div>
-            <div class="row mt-4">
-                <div class="col-3">
-                    <span>hi</span>
+                
+                <div class="row mt-2">
+                    <div class="col-3 mt-4" v-for="(item, index) in miniStatisticsCardItems" :key="index">
+                        <mini-statistics-card
+                            :title="item.title"
+                            :detail="item.detail"
+                            :icon="item.icon"
+                        />
                 </div>
-                <div class="col-3">
-                    <span>hi</span>
-                </div>
-                <div class="col-3">
-                    <span>hi</span>
-                </div>
-                <div class="col-3">
-                    <span>hi</span>
-                </div>
-            </div>
-            <div class="row mt-4">
-                <div class="col-3">
-                    <span>hi</span>
-                </div>
-                <div class="col-3">
-                    <span>hi</span>
-                </div>
-                <div class="col-3">
-                    <span>hi</span>
-                </div>
-                <div class="col-3">
-                    <span>hi</span>
-                </div>
+
             </div>
         </div>
     </div>
@@ -65,71 +49,84 @@
       </div>
     </div>
 
+    <div class="row">
+      <div class="col-4">
+        <span>hi</span>
+      </div>
+      <div class="col-4">
+        <span>hi</span>
+      </div>
+      <div class="col-4">
+        <span>hi</span>
+      </div>
+    </div>
+
   </div>
 </template>
 
 <script>
-    import DefaultInfoCard from "@/examples/Cards/DefaultInfoCard.vue"
+    import DefaultInfoCard from "@/examples/Cards/DefaultInfoCard.vue";
+    import MiniStatisticsCard from "./components/MiniStatisticsCard.vue";
 
     export default {
         name: 'Projects',
         data() {
             return {
-                items: [
+                defaultInfoCardItems: [
                     {
                         icon: {
                             component: 'monitor',
-                            background: 'bg-primary',
+                            background: 'bg-gradient-secondary',
                         },
                         title: 'Host',
                         description: 'Updated 2024-10-15',
                         value: 3,
-                        text: 'text-primary'
+                        text: 'text-dark'
                     },
                     {
                         icon: {
                             component: 'build',
-                            background: 'bg-secondary',
+                            background: 'bg-gradient-secondary',
                         },
                         title: 'CPU',
                         description: 'Updated 2024-10-14',
-                        value: 144 + 'Cores',
-                        text: 'text-secondary'
+                        value: '144 Cores',
+                        text: 'text-dark'
                     },
                     {
                         icon: {
                             component: 'man',
-                            background: 'bg-warning',
+                            background: 'bg-gradient-secondary',
                         },
                         title: 'Memory',
                         description: 'Updated 2024-10-13',
-                        value: 1.48 + 'TB',
-                        text: 'text-warning'
+                        value: '1.48 TB',
+                        text: 'text-dark'
                     },
                     {
                         icon: {
                             component: 'woman',
-                            background: 'bg-success',
+                            background: 'bg-gradient-secondary',
                         },
                         title: 'Storage',
                         description: 'Updated 2024-10-12',
-                        value: 4 + 'TB',
-                        text: 'text-success'
+                        value: '4 TB',
+                        text: 'text-dark'
                     },
                     {
                         icon: {
                             component: 'warning',
-                            background: 'bg-danger',
+                            background: 'bg-gradient-secondary',
                         },
                         title: 'Cluster',
                         description: 'Updated 2024-10-11',
                         value: 1,
-                        text: 'text-danger'
+                        text: 'text-dark'
                     },
                     {
                         icon: {
                             component: 'face',
-                            background: 'bg-dark',
+                            background: 'bg-gradient-secondary',
                         },
                         title: 'Data Center',
                         description: 'Updated 2024-10-10',
@@ -137,10 +134,109 @@
                         text: 'text-dark'
                     },
                 ],
+                miniStatisticsCardItems: [
+                    {
+                        title: {
+                            text: 'Virtual Machine',
+                            value: 109,
+                        },
+                        detail: "<span class='text-danger text-sm font-weight-bolder'>-2%</span> than last week",
+                        icon: {
+                            name: 'weekend',
+                            color: 'text-white',
+                            background: 'danger',
+                        },
+                    },
+                    {
+                        title: {
+                            text: 'Allocated CPU',
+                            value: '555 vCPU',
+                        },
+                        detail: "<span class='text-secondary text-sm font-weight-bolder'>0%</span> than last week",
+                        icon: {
+                            name: 'weekend',
+                            color: 'text-white',
+                            background: 'secondary',
+                        },
+                    },
+                    {
+                        title: {
+                            text: 'Allocated Memory',
+                            value: '1.6 TB',
+                        },
+                        detail: "<span class='text-success text-sm font-weight-bolder'>+55%</span> than last week",
+                        icon: {
+                            name: 'weekend',
+                            color: 'text-white',
+                            background: 'success',
+                        },
+                    },
+                    {
+                        title: {
+                            text: 'Project',
+                            value: 0,
+                        },
+                        detail: "<span class='text-secondary text-sm font-weight-bolder'>0%</span> than last week",
+                        icon: {
+                            name: 'weekend',
+                            color: 'text-white',
+                            background: 'secondary',
+                        },
+                    },
+                    {
+                        title: {
+                            text: 'Totall Cost',
+                            value: '₩ 7,263,413.5',
+                        },
+                        detail: "<span class='text-success text-sm font-weight-bolder'>+0.05%</span> than last week",
+                        icon: {
+                            name: 'weekend',
+                            color: 'text-white',
+                            background: 'success',
+                        },
+                    },
+                    {
+                        title: {
+                            text: 'Data Store Cost',
+                            value: '₩ 1,741,925.87',
+                        },
+                        detail: "<span class='text-secondary text-sm font-weight-bolder'>0%</span> than last week",
+                        icon: {
+                            name: 'weekend',
+                            color: 'text-white',
+                            background: 'secondary',
+                        },
+                    },
+                    {
+                        title: {
+                            text: 'Potential Cost Save',
+                            value: '₩ 1,974,215.04',
+                        },
+                        detail: "<span class='text-danger text-sm font-weight-bolder'>-0.01%</span> than last week",
+                        icon: {
+                            name: 'weekend',
+                            color: 'text-white',
+                            background: 'danger',
+                        },
+                    },
+                    {
+                        title: {
+                            text: 'Actual Cost Save',
+                            value: 0,
+                        },
+                        detail: "<span class='text-secondary text-sm font-weight-bolder'>0%</span> than last week",
+                        icon: {
+                            name: 'weekend',
+                            color: 'text-white',
+                            background: 'secondary',
+                        },
+                    },
+                ]
             }
         },
         components: {
-            DefaultInfoCard
-        }, 
+            DefaultInfoCard,
+            MiniStatisticsCard,
+        },
     }
 </script>

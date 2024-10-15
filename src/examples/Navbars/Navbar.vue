@@ -49,7 +49,7 @@
                       />
                     </div>
                     <div class="d-flex flex-column justify-content-center">
-                      <span class="text-xs">User</span>
+                      <span class="text-xxs">User</span>
                       <h6 class="mb-1 text-sm font-weight-normal">
                         <span class="font-weight-bold">Youngseok Hwang</span>
                       </h6>
